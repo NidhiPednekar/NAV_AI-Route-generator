@@ -75,6 +75,6 @@ def get_map():
     return render_template('index.html', map_html=map_html, duration=formatted_duration)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 
