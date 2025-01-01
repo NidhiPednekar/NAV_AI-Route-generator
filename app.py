@@ -45,7 +45,7 @@ def get_map():
 
         # Add a heatmap layer to the map using the coordinates
         HeatMap(coordinates).add_to(m)
-        client = openrouteservice.Client(key='5b3ce3597851110001cf6248cc5863ac80a4414e8c34f637a1220b04')  # Replace with your OpenRouteService API key
+        client = openrouteservice.Client(key='5b3ce3597851110001cf624835a9bfaba5df4c26ad73a754439279b5')  # Replace with your OpenRouteService API key
         coords = [[lng1, lat1], [lng2, lat2]]
         
         # Set the profile based on the vehicle type
