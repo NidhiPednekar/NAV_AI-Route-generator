@@ -38,12 +38,13 @@ def get_map():
 
         # Process the traffic_data and create a list of coordinates for the heatmap
         coordinates = []
-        for result in traffic_data['results']:
-            # CHANGED: Added checks to ensure 'location' and 'shape' keys exist
+        for result in results:
             if 'location' in result and 'shape' in result['location']:
-                for link in result['location']['shape']['links']:
-                    for point in link['points']:
+                shape = result['location']['shape']
+                for segment in shape.get('segments', []):
+                    for point in segment.get('points', []):
                         coordinates.append((point['lat'], point['lng']))
+
 
         # Create a map centered at the average of the input coordinates
         m = folium.Map(location=[(float(lat1) + float(lat2)) / 2, (float(lng1) + float(lng2)) / 2], zoom_start=14)
